@@ -15,7 +15,24 @@ import model.Menu;
 
 public class StreamTest {
   public static void main(String[] args) {
-    example10();
+    example11();
+  }
+
+  // filter isPresent
+  public static void example11() {
+    List<Car> carList = getCarList();
+
+    List<Car> colorList = carList.stream()
+        .filter(o -> o.getColor().equals("흰색") || o.getColor().equals("빨강"))
+        .collect(Collectors.toList());
+    colorList.forEach(System.out::println);
+
+    boolean isExists = carList.stream().filter(o -> o.getColor().equals("흰색")).findAny()
+        .isPresent();
+    System.out.println(isExists);
+    isExists = carList.stream().filter(o -> o.getColor().equals("검정")).findAny().isPresent();
+    System.out.println(isExists);
+
   }
 
   // groupingBy LinkedHashMap LinkedHashMap List
