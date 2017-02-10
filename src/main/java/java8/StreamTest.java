@@ -15,7 +15,32 @@ import model.Menu;
 
 public class StreamTest {
   public static void main(String[] args) {
-    example8();
+    example10();
+  }
+
+  // groupingBy LinkedHashMap LinkedHashMap List
+  public static void example10() {
+    List<Car> carList = getCarList();
+    LinkedHashMap<String, LinkedHashMap<String, List<Integer>>> collect = carList//
+        .stream()//
+        .collect//
+    (//
+        Collectors.groupingBy(//
+            Car::getColor, //
+            LinkedHashMap::new, //
+            Collectors.mapping(//
+                o -> o,
+                Collectors.groupingBy(//
+                    Car::getCarName, //
+                    LinkedHashMap::new, //
+                    Collectors.mapping(//
+                        Car::getCarNo, Collectors.toList()//
+                    )//
+                )//
+            )//
+        )//
+    );
+    System.out.println(collect);
   }
 
   // groupingBy LinkedHashMap
