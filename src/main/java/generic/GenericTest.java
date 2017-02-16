@@ -1,37 +1,45 @@
 package generic;
 
 public class GenericTest {
-    public static void main(String[] args) {
-        GenericTest clazz = new GenericTest();
-        // ClazzGeneric classGeneric =
-        // clazz.getClassGeneric(ClazzGeneric.class);
-        String classGeneric = clazz.setString(clazz.getClassGenerics(String.class));
-        System.out.println(classGeneric);
-    }
+  public static void main(String[] args) {
+    GenericTest genericTest = new GenericTest();
+    // ClazzGeneric classGeneric =
+    // clazz.getClassGeneric(ClazzGeneric.class);
+    String classGeneric = genericTest.setString(genericTest.getClassGenerics(String.class));
+    int a = genericTest.getClassGenerics(1);
+    String b = genericTest.getClassGenerics("1");
 
-    public String setString(String string) {
-        return string;
-    }
+    System.out.println(classGeneric);
+  }
 
-    @SuppressWarnings("unchecked")
-    public <T> T getClassGeneric(Class<T> type) {
-        ClazzGeneric classGeneric = new ClazzGeneric() {
+  public String setString(String string) {
+    return string;
+  }
 
-            @Override
-            public int getPlusOne(int param) {
+  @SuppressWarnings("unchecked")
+  public <T> T getClassGeneric(Class<T> type) {
+    ClazzGeneric classGeneric = new ClazzGeneric() {
 
-                return param + 1;
-            }
-        };
-        return (T) classGeneric;
-    }
+      @Override
+      public int getPlusOne(int param) {
 
-    public <T> T getClassGenerics(Class<T> type) {
-        Object result = "hah";
-        return (T) result;
-    }
+        return param + 1;
+      }
+    };
+    return (T) classGeneric;
+  }
 
-    public interface ClazzGeneric {
-        public int getPlusOne(int param);
-    }
+  public <T> T getClassGenerics(Class<T> type) {
+    Object result = "hah";
+    return (T) result;
+  }
+
+  public <T> T getClassGenerics(T type) {
+    Object result = "hah";
+    return (T) result;
+  }
+
+  public interface ClazzGeneric {
+    public int getPlusOne(int param);
+  }
 }
