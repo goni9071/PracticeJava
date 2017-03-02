@@ -5,7 +5,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class TimerTest {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     Timer timer = new Timer("Test");
 
     TimerTask timerTask = new TimerTask() {
@@ -21,6 +21,10 @@ public class TimerTest {
     };
 
     timer.schedule(timerTask, 0, 1000 * 1); // 1 초
+
+    TimeUnit.SECONDS.sleep(20);
+
+    timer.cancel();
   }
 
 }
