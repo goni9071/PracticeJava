@@ -15,7 +15,19 @@ import model.Menu;
 
 public class StreamTest {
   public static void main(String[] args) {
-    example11();
+    example12();
+  }
+
+  // forEach Test
+  public static void example12() {
+    List<String> strList = Arrays.asList("가", "나", "다");
+    System.out.println(strList);
+    strList.forEach(o -> o += "1");
+    System.out.println(strList);
+    strList.forEach(o -> {
+      o = "ㅜㅜ";
+    });
+    System.out.println(strList);
   }
 
   // filter isPresent
