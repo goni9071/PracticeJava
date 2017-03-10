@@ -15,7 +15,13 @@ import model.Menu;
 
 public class StreamTest {
   public static void main(String[] args) {
-    example12();
+    example13();
+  }
+
+  // Max Test
+  public static void example13() {
+    List<Car> carList = getCarList();
+    System.out.println(Collections.max(carList, Comparator.comparing(car -> car.getSpeed())));
   }
 
   // forEach Test

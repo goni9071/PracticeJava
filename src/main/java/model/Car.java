@@ -41,7 +41,8 @@ public class Car {
 
   @Override
   public String toString() {
-    return "carNo:" + carNo + ",carName:" + carName + ",color:" + color + ",audio:" + audio;
+    return "carNo:" + carNo + ",carName:" + carName + ",color:" + color + ",audio:" + audio
+        + ",speed:" + speed;
   }
 
   public Audio getAudio() {
