@@ -19,7 +19,11 @@ public class Format {
     System.out.println(String.format("%1$-3s", "가나다라") + "마");// rpad 숫자보다 많으면?
     System.out.println(String.format("%1$-10s", "가나 다라").replace(" ", "0"));// rpad 0
 
-    System.out.println(String.format("%02X", (byte) '1'));// 31
+    System.out.println(String.format("%02X", (byte) '1'));// 0x31
+    System.out.println(String.format("%02X", (byte) 0));// 0x00
+    System.out.println(String.format("%02X", (byte) ' '));// 0x20
+    char b[] = new char[1];
+    System.out.println(String.format("%02X", (byte) b[0]));// 0x00
 
     String.format("%,d", 1000000);
   }
